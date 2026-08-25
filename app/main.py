@@ -7,7 +7,7 @@ from fastapi import FastAPI, File, UploadFile, HTTPException
 from PIL import Image
 from contextlib import asynccontextmanager
 
-from data.dataset import val_test_transforms
+from data.transforms import val_test_transforms
 from data.ela import compute_ela
 from app.schemas import HealthResponse, PredictionResponse
 

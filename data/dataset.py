@@ -5,6 +5,7 @@ import torch
 from torchvision  import transforms
 from PIL import Image
 from torch.utils.data import Dataset,DataLoader
+from data.transforms import train_transforms, val_test_transforms
 def load_dataset():
     df = pd.read_csv("data/processed_manifest.csv")
     X = df["file_path"]
@@ -18,16 +19,7 @@ def split_dataset():
     return X_train, X_val, X_test, y_train, y_val, y_test
 
 
-train_transforms = transforms.Compose([
-    transforms.Resize((224,224)),
-    transforms.ToTensor(),
-    transforms.Normalize(mean = [0.485,0.456,0.406],std = [0.229,0.224,0.225])
-])
-val_test_transforms = transforms.Compose([
-    transforms.Resize((224,224)),
-    transforms.ToTensor(),
-    transforms.Normalize(mean = [0.485,0.456,0.406],std = [0.229,0.224,0.225])
-])
+
 
 class Elaimagedataset(Dataset):
     def __init__(self,dataframe,transform = None):
