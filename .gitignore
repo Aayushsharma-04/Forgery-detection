@@ -1,0 +1,31 @@
+# Virtual environment / conda
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Dataset - too large for git, download separately (see README)
+data/raw/
+data/processed/
+
+# Temp files generated during ELA computation
+temp.jpg
+temp.jpeg
+
+# MLflow local tracking (if used)
+mlruns/
+mlflow.db
+
+# OS / editor junk
+.DS_Store
+.vscode/
+*.ipynb_checkpoints/
+
+# Jupyter checkpoints
+.ipynb_checkpoints
+
+# Environment secrets (if any added later)
+.env
