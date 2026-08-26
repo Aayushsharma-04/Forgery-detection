@@ -2,5 +2,6 @@ torch --extra-index-url https://download.pytorch.org/whl/cpu
 torchvision --extra-index-url https://download.pytorch.org/whl/cpu
 pillow
 fastapi
+numpy
 uvicorn[standard]
 python-multipart
