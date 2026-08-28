@@ -9,6 +9,7 @@ def test_health():
         response = client.get("/health")
         assert response.status_code == 200
         assert response.json()["status"] == "ok"
+        assert response.json()["model_loaded"] is True
 
 
 def test_predict_rejects_invalid_file():
