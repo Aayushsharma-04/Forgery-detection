@@ -13,15 +13,7 @@ from data.ela import compute_ela
 from app.schemas import HealthResponse, PredictionResponse
 
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=[
-        "http://localhost:5500",
-    ],
-    allow_credentials=False,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+
 
 MODEL_PATH = "model/artifacts/best_model_finetuned.pth"
 LABEL_MAP = {0: "authentic", 1: "tampered"}
@@ -50,6 +42,15 @@ app = FastAPI(
     description="Detects whether an uploaded image is authentic or tampered using ELA + fine-tuned ResNet18.",
     version="1.0.0",
     lifespan=lifespan,
+)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:5500",
+    ],
+    allow_credentials=False,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 
