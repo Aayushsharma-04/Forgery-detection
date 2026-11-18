@@ -23,7 +23,9 @@ app = FastAPI(
 # CORS middleware — app must be created before this
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5500"],
+    allow_origins=["http://localhost:5500",
+                    "https://forgeryfrontend.vercel.app",
+                  ],
     allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
