@@ -6,10 +6,22 @@ from torchvision import models
 from fastapi import FastAPI, File, UploadFile, HTTPException
 from PIL import Image
 from contextlib import asynccontextmanager
+from fastapi.middleware.cors import CORSMiddleware
 
 from data.transforms import val_test_transforms
 from data.ela import compute_ela
 from app.schemas import HealthResponse, PredictionResponse
+
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:5500",
+    ],
+    allow_credentials=False,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 MODEL_PATH = "model/artifacts/best_model_finetuned.pth"
 LABEL_MAP = {0: "authentic", 1: "tampered"}
