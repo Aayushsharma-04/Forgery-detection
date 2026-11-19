@@ -47,7 +47,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:5500",
-        "https://forgeryfrontend.verce.app",
+        "https://forgeryfrontend.vercel.app",
     ],
     allow_credentials=False,
     allow_methods=["*"],
