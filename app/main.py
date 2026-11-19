@@ -13,6 +13,24 @@ from data.ela import compute_ela
 from app.schemas import HealthResponse, PredictionResponse
 
 
+app = FastAPI(
+    title="Image Forgery Detection API",
+    description="Detects whether an uploaded image is authentic or tampered using ELA + fine-tuned ResNet18.",
+    version="1.0.0",
+    lifespan=lifespan,
+)
+
+# CORS middleware — app must be created before this
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5500",
+                    "https://forgeryfrontend.vercel.app",
+                  ],
+    allow_credentials=False,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 
 MODEL_PATH = "model/artifacts/best_model_finetuned.pth"
